@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="top.gtf35.controlcenter">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- OneNET 的一些静态配置，参见 wiki -->
+        <!-- OneNET product api-key -->
+        <meta-data
+            android:name="com.chinamobile.iot.onenet.APP-KEY"
+            android:value="" /> <!-- OneNET api scheme -->
+        <meta-data
+            android:name="com.chinamobile.iot.onenet.SCHEME"
+            android:value="https" /> <!-- OneNET server host -->
+        <meta-data
+            android:name="com.chinamobile.iot.onenet.HOST"
+            android:value="api.heclouds.com" />
+
+        <activity android:name=".ui.computer_room.ComputerRoomActivity"/>
+    </application>
+
+</manifest>

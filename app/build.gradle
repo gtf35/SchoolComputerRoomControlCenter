@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "top.gtf35.controlcenter"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // Toast工具类
+    implementation 'tech.gujin:toast-util:1.1.1'
+
+    // https://github.com/drakeet/MultiType
+    // 复杂RecycleView适配器库, 在一个 RecycleView 使用多种类型的 item 的分发框架
+    implementation 'com.drakeet.multitype:multitype:4.1.1'
+
+    // https://github.com/scwang90/SmartRefreshLayout
+    //RecyclerView上拉加载下拉刷新框架
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-28'
+
+    // https://github.com/bumptech/glide
+    // 快速高效的Android图片加载库
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
+    // https://square.github.io/okhttp/
+    // okhttp 网络请求框架
+    implementation("com.squareup.okhttp3:okhttp:4.2.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.2.1")
+
+    // https://github.com/gtf35/beautiful_switch
+    // 一个漂亮的开关
+    implementation 'top.gtf35.lib.withyebai:BeautifulSwitch:1.1'
+
+    // https://github.com/cm-heclouds/AndroidSDK
+    // 中移物联网公司 为方便Android开发者接入 OneNET 平台而开发的客户端SDK
+    //wiki https://github.com/cm-heclouds/AndroidSDK/wiki
+    implementation('com.chinamobile.iot.onenet:onenet-sdk:+') {
+        // 排除 okhttp 依赖，因为不少东西内部都会依赖，会相互冲突
+        // 自己定义，避免冲突
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+        exclude group: 'com.squareup.okhttp3', module: 'logging-interceptor'
+    }
+
+    // https://github.com/google/gson
+    // json 解析库
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    // https://github.com/Clans/FloatingActionButton
+    // 悬浮按钮
+    implementation 'com.github.clans:fab:1.6.4'
+
+    // https://github.com/ybq/Android-SpinKit
+    // 加载动画库
+    implementation 'com.github.ybq:Android-SpinKit:1.2.0'
+
+}

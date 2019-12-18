@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ControlCenter</string>
+    <string name="request_write_external_tip">需要储存权限来保存图片/日志等信息</string>
+    <string name="main_ac_title">数据中心</string>
+    <string name="device_type_tip">协议：</string>
+    <string name="device_id_tip">ID:</string>
+</resources>
