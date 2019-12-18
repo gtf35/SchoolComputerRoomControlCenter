@@ -8,7 +8,8 @@
     app:cardCornerRadius="3dp"
     app:cardElevation="12dp"
     android:foreground="?android:attr/selectableItemBackground"
-    android:clickable="true">
+    android:clickable="true"
+    android:id="@+id/card_computer_room">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

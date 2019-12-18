@@ -4,4 +4,10 @@
     <string name="main_ac_title">数据中心</string>
     <string name="device_type_tip">协议：</string>
     <string name="device_id_tip">ID:</string>
+
+    <string name="sensor_control_ac_title">传感器</string>
+    <string name="sensor_refreash_time_tip">更新时间：</string>
+    <string name="sensor_refreash_time_null_tip">暂无数据</string>
+    <string name="sensor_tag_tip">标签：</string>
+    <string name="sensor_tag_null_tip">空空如也</string>
 </resources>

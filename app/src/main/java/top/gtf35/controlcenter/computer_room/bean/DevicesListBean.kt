@@ -1,5 +1,7 @@
 package top.gtf35.controlcenter.computer_room.bean
 
+import top.gtf35.controlcenter.common.bean.DeviceItem
+
 data class DevicesListBean(
     val errno:Int,
     val data: DevicesDataListBean,

@@ -7,12 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.drakeet.multitype.ItemViewDelegate
 import tech.gujin.toast.ToastUtil
-import top.gtf35.controlcenter.App
 import top.gtf35.controlcenter.R
-import top.gtf35.controlcenter.common.utils.ClipboardUtils
 
 class EmptyListAdapterItem: ItemViewDelegate<EmptyListAdapterItemBean, EmptyListAdapterItem.ViewHolder>(){
 
@@ -22,6 +21,14 @@ class EmptyListAdapterItem: ItemViewDelegate<EmptyListAdapterItemBean, EmptyList
     }
 
     override fun onBindViewHolder(holder: ViewHolder, item: EmptyListAdapterItemBean) {
+        // 这个空 item 有时候会用来占位，所以要有一点点大小的状态
+        if (item.isHidden){
+            var layoutParams = holder.rootView.layoutParams
+            layoutParams.width = 1
+            layoutParams.height = 1
+            holder.rootView.layoutParams = layoutParams
+            return
+        }
         holder.msg.text = item.name
         holder.imgIcon.setImageResource(item.logoID)
 
@@ -32,5 +39,6 @@ class EmptyListAdapterItem: ItemViewDelegate<EmptyListAdapterItemBean, EmptyList
     class ViewHolder(itemView : View): RecyclerView.ViewHolder(itemView) {
         val msg: TextView = itemView.findViewById(R.id.tv_empty_item_text)
         val imgIcon: ImageView = itemView.findViewById(R.id.iv_empty_item_icon)
+        val rootView: ConstraintLayout = itemView.findViewById(R.id.con_root_empty_item)
     }
 }

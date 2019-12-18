@@ -3,14 +3,13 @@ package top.gtf35.controlcenter.ui.computer_room
 import android.view.View
 import android.widget.Button
 import com.drakeet.multitype.MultiTypeAdapter
-import com.google.android.material.snackbar.Snackbar
 import com.scwang.smartrefresh.layout.api.RefreshLayout
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener
 import kotlinx.android.synthetic.main.activity_computer_room.*
 import top.gtf35.controlcenter.R
 import top.gtf35.controlcenter.common.mvp_base.BaseActivity
 import top.gtf35.controlcenter.computer_room.ComputerRoomPresent
-import top.gtf35.controlcenter.computer_room.bean.DeviceItem
+import top.gtf35.controlcenter.common.bean.DeviceItem
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import top.gtf35.controlcenter.common.utils.*
 import top.gtf35.controlcenter.ui.common.EmptyListAdapterItem
@@ -54,7 +53,7 @@ class ComputerRoomActivity : BaseActivity<ComputerRoomPresent>(), OnRefreshListe
         // 清空旧的
         mItems.clear()
         // 装入出错的 item to rec (复用空列表 item）
-        mItems.add(EmptyListAdapterItemBean("加载失败", R.drawable.ic_sentiment_dissatisfied_black))
+        showEmptyRecItem("加载失败", R.drawable.ic_sentiment_dissatisfied_black)
         // 通知适配器应用改变
         mAdapter.notifyDataSetChanged()
     }
@@ -62,7 +61,7 @@ class ComputerRoomActivity : BaseActivity<ComputerRoomPresent>(), OnRefreshListe
     override fun onRefresh(refreshLayout: RefreshLayout) {
         // 如果现在是空的，没有项目，装入一个加载中的 item 进 rec (复用空列表 item）
        if (mItems.isEmpty()){
-           mItems.add(EmptyListAdapterItemBean("Loading...", R.drawable.ic_sentiment_satisfied_black))
+           showEmptyRecItem("空空如也", R.drawable.ic_sentiment_neutral_back)
            // 通知适配器应用改变
            mAdapter.notifyDataSetChanged()
        }
@@ -98,7 +97,7 @@ class ComputerRoomActivity : BaseActivity<ComputerRoomPresent>(), OnRefreshListe
         // 触发刷新获取数据
         refreshLayout_conmputer_room.autoRefresh()
         // 进入时是空的，白的不好看
-        mItems.add(EmptyListAdapterItemBean("Loading...", R.drawable.ic_sentiment_satisfied_black))
+        showEmptyRecItem("Loading...", R.drawable.ic_sentiment_satisfied_black)
         // 通知适配器应用改变
         mAdapter.notifyDataSetChanged()
     }
@@ -117,5 +116,20 @@ class ComputerRoomActivity : BaseActivity<ComputerRoomPresent>(), OnRefreshListe
                 SnackbarUtils.Short(refreshLayout_conmputer_room, "已经复制到剪贴板").show()
             }
             .show()
+    }
+
+
+    /**
+    * 展示空的 rec
+     * @msg 占位符下面的文字
+     * bugfix 在横屏下因为有 3 列，所以不居中
+    * */
+    fun showEmptyRecItem(msg: String, picID: Int){
+        // 先放入一个大小是 0 的占名额
+        if (ScreenUtils.isWideScreenMode(this)) mItems.add(EmptyListAdapterItemBean("null", isHidden = true))
+        // 装入空白 item
+        mItems.add(EmptyListAdapterItemBean(msg, picID))
+        // 再放入一个大小是 0 的占名额，正好 3 个
+        if (ScreenUtils.isWideScreenMode(this)) mItems.add(EmptyListAdapterItemBean("null",  isHidden = true))
     }
 }

@@ -1,7 +1,8 @@
-package top.gtf35.controlcenter.computer_room.bean;
+package top.gtf35.controlcenter.common.bean;
 
 import android.location.Location;
 
+import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -118,5 +119,15 @@ public class DeviceItem implements Serializable {
                 ", authInfo='" + authInfo + '\'' +
                 ", activateCode=" + activateCode +
                 '}';
+    }
+
+    public String toJson(){
+        Gson gson = new Gson();
+        return gson.toJson(this, DeviceItem.class);
+    }
+
+    public static DeviceItem fromJson(String json){
+        Gson gson = new Gson();
+        return gson.fromJson(json, DeviceItem.class);
     }
 }

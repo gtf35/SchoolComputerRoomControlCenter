@@ -1,7 +1,6 @@
 package top.gtf35.controlcenter.ui.computer_room
 
-import top.gtf35.controlcenter.computer_room.bean.DeviceItem
-import top.gtf35.controlcenter.computer_room.bean.DevicesListBean
+import top.gtf35.controlcenter.common.bean.DeviceItem
 
 interface IComputerRoomV {
 

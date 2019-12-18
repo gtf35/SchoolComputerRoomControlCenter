@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_sensor"
+    app:cardCornerRadius="1dp"
+    app:cardElevation="12dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_sensor_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_sensor_refreash_time_tip"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="帅帅的传感器" />
+
+        <TextView
+            android:id="@+id/tv_sensor_refreash_time_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/sensor_refreash_time_tip"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_sensor_tag_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="2dp"
+            android:text="@string/sensor_tag_tip"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_sensor_refreash_time_tip"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_sensor_refreash_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_sensor_refreash_time_tip"
+            tools:text="暂无数据" />
+
+        <TextView
+            android:id="@+id/tv_sensor_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_sensor_refreash_time"
+            app:layout_constraintStart_toEndOf="@+id/tv_sensor_refreash_time_tip"
+            tools:text="@string/sensor_tag_null_tip" />
+
+        <TextView
+            android:id="@+id/tv_sensor_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="--"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_sensor_unit"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.484"
+            tools:text="30" />
+
+        <TextView
+            android:id="@+id/tv_sensor_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="--"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_sensor_value"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="%" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+</RelativeLayout>

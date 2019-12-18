@@ -3,8 +3,8 @@
     package="top.gtf35.controlcenter">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".App"
@@ -14,18 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.sensor_control.SensorControlActivity"></activity>
         <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!-- OneNET 的一些静态配置，参见 wiki -->
+        </activity> <!-- OneNET 的一些静态配置，参见 wiki -->
         <!-- OneNET product api-key -->
         <meta-data
             android:name="com.chinamobile.iot.onenet.APP-KEY"
-            android:value="" /> <!-- OneNET api scheme -->
+            android:value="kHNX4s7PFMWOgoV=Fwg4WcS7GKI=" /> <!-- OneNET api scheme -->
         <meta-data
             android:name="com.chinamobile.iot.onenet.SCHEME"
             android:value="https" /> <!-- OneNET server host -->
@@ -33,7 +33,7 @@
             android:name="com.chinamobile.iot.onenet.HOST"
             android:value="api.heclouds.com" />
 
-        <activity android:name=".ui.computer_room.ComputerRoomActivity"/>
+        <activity android:name=".ui.computer_room.ComputerRoomActivity" />
     </application>
 
 </manifest>
